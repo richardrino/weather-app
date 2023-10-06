@@ -1,11 +1,10 @@
-const Header = () => {
+import Search from './Search';
+
+const Header = ({ getCoordinates }) => {
 	return (
 		<header>
 			<span className='logo-text'>ForecastIQ</span>
-			<form action=''>
-				<input type='text' />
-				<button type='submit'>Search</button>
-			</form>
+			<Search getCoordinates={getCoordinates} />
 			<nav>
 				<ul className='nav-list'>
 					<li>Today&apos;s Forecast</li>
