@@ -1,10 +1,12 @@
 import Search from './Search';
 
-const Header = ({ getCoordinates }) => {
+const Header = ({ getCurrentWeather }) => {
 	return (
 		<header>
 			<span className='logo-text'>ForecastIQ</span>
-			<Search getCoordinates={getCoordinates} />
+			<Search
+				getCurrentWeather={getCurrentWeather}
+			/>
 			<nav>
 				<ul className='nav-list'>
 					<li>Today&apos;s Forecast</li>
