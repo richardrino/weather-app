@@ -1,3 +1,7 @@
+body {
+	background-color: rgb(247, 247, 247);
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -11,4 +15,14 @@ header {
 .nav-list {
 	display: flex;
 	gap: 1rem;
+}
+
+.search-results-list {
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(255, 255, 255);
+	width: 100%;
+	max-height: 300px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 8px #ddd;
 }
