@@ -4,14 +4,24 @@ import { API_COORDINATES } from '../constants';
 const Search = ({ getWeather }) => {
 	const [searchInput, setSearchInput] = useState('');
 
-	const handleInput = (e) => {
+	const handleChange = async (e) => {
 		setSearchInput(e.target.value);
+		// Geocoding API call
+		console.log('Getting search results...');
+		const jsonData = await fetch(
+			`${API_COORDINATES}?q=${searchInput}&limit=5&appid=${
+				import.meta.env.VITE_API_KEY
+			}`
+		);
+		const data = await jsonData.json();
+		getWeather([data[0].lat, data[0].lon]);
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		// Geocoding API call
 		const jsonData = await fetch(
-			`${API_COORDINATES}?q=${searchInput}&appid=${
+			`${API_COORDINATES}?q=${searchInput}&limit=5&appid=${
 				import.meta.env.VITE_API_KEY
 			}`
 		);
@@ -21,7 +31,7 @@ const Search = ({ getWeather }) => {
 
 	return (
 		<form action='' onSubmit={handleSubmit}>
-			<input type='text' onChange={handleInput} />
+			<input name='searchInput' type='text' onChange={handleChange} />
 			<button type='submit'>Search</button>
 		</form>
 	);
