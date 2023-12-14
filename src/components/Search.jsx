@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { API_COORDINATES } from '../constants';
 
-const Search = ({ getCurrentWeather }) => {
+const Search = ({ getWeather }) => {
 	const [searchInput, setSearchInput] = useState('');
 
 	const handleInput = (e) => {
@@ -16,7 +16,7 @@ const Search = ({ getCurrentWeather }) => {
 			}`
 		);
 		const data = await jsonData.json();
-		getCurrentWeather([data[0].lat, data[0].lon]);
+		getWeather([data[0].lat, data[0].lon]);
 	};
 
 	return (
