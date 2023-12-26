@@ -1,5 +1,4 @@
 import Search from './Search';
-import SearchResultsList from './SearchResultsList';
 import { useState } from 'react';
 
 const Header = ({ getWeather }) => {
